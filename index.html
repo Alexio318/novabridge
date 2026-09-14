@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaBridge | Engenharia Tecnológica</title>
+    <!-- Font Awesome Pro / Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Premium -->
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+        <meta name="description" content="NovaBridge — Empresa de Tecnologia da Informação especializada em engenharia tecnológica para empresas em Luanda, Angola.">
+        <meta name="keywords" content="NovaBridge, tecnologia empresarial, engenharia de software, redes, servidores, dados, automação, APIs, Luanda, Angola">
+        <meta name="robots" content="index, follow">
+        <meta property="og:title" content="NovaBridge — Engenharia Tecnológica para Empresas">
+        <meta property="og:description" content="A ponte entre visão e realidade digital. Soluções tecnológicas em software, redes, servidores, dados, automação e suporte técnico.">
+        <meta property="og:type" content="website">
+        <meta property="og:locale" content="pt_PT">
+        <meta property="og:site_name" content="NovaBridge">
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="NovaBridge — Engenharia Tecnológica para Empresas">
+        <meta name="twitter:description" content="A ponte entre visão e realidade digital. Soluções tecnológicas em software, redes, servidores, dados, automação e suporte técnico.">
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "NovaBridge",
+            "url": "",
+            "logo": "",
+            "sameAs": [],
+            "contactPoint": [{
+                "@type": "ContactPoint",
+                "telephone": "+244948996080",
+                "contactType": "customer support",
+                "email": "it.novabridge@gmail.com",
+                "areaServed": "AO",
+                "availableLanguage": ["Portuguese"]
+            }],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Bairro Popular",
+                "addressLocality": "Luanda",
+                "addressCountry": "Angola"
+            }
+        }
+        </script>
+
+        <style>
+        :root {
+            --bg-main: #fcfdfe;
+            --primary-blue: #0b4fbf;
+            --secondary-green: #00b356;
+            --dark-slate: #0f172a;
+            --text-muted: #475569;
+            --glass-bg: rgba(255, 255, 255, 0.94);
+            --border-light: #e2e8f0;
+            --shadow-premium: 0 20px 40px -15px rgba(11, 79, 191, 0.08);
+            --shadow-hover: 0 30px 60px -10px rgba(11, 79, 191, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Mantém a tela principal estática */
+            background: url('background-nb.png') center center / cover no-repeat fixed;
+            color: var(--dark-slate);
+        }
+
+        /* Grade Tecnológica de Fundo Dinâmica */
+        .tech-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(11, 79, 191, 0.04) 1.5px, transparent 1.5px),
+                linear-gradient(90deg, rgba(11, 79, 191, 0.04) 1.5px, transparent 1.5px);
+            background-size: 50px 50px;
+            z-index: 1;
+            opacity: 0.9;
+        }
+
+        .app-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        /* Canvas das Linhas de Conexão Multiponto */
+        .network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .data-stream {
+            stroke: url(#lineGradient);
+            stroke-width: 2.5;
+            stroke-dasharray: 8 12;
+            animation: transmitData 4s linear infinite;
+            transition: all 0.5s ease;
+        }
+
+        /* Linhas secundárias cruzadas para aumentar efeito de malha de rede */
+        .inter-mesh {
+            stroke: rgba(0, 179, 86, 0.15);
+            stroke-width: 1;
+            stroke-dasharray: 4 4;
+        }
+
+        @keyframes transmitData {
+            to { stroke-dashoffset: -100; }
+        }
+
+        /* NÓ CENTRAL */
+        .node-core {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            background: white;
+            border: 4px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            box-shadow: 0 35px 70px -15px rgba(11, 79, 191, 0.2);
+            text-align: center;
+            padding: 25px;
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .node-core h1 {
+            display: none;
+        }
+
+        .node-core .logo-mark {
+            width: 230px;
+            height: 230px;
+            object-fit: contain;
+            display: block;
+            filter: drop-shadow(0 10px 18px rgba(11, 79, 191, 0.12));
+        }
+
+        .node-core p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-top: 12px;
+        }
+
+        /* WRAPPERS SATÉLITES ESTÁVEIS */
+        .satellite-wrapper {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* CÍRCULO INTERNO INTERATIVO */
+        .node-satellite {
+            width: 125px;
+            height: 125px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 2px solid rgba(11, 79, 191, 0.1);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-premium);
+            text-align: center;
+            padding: 12px;
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+
+        /* Animações Orgânicas Isoladas */
+        .sw-1 .node-satellite { animation: floatY 5.5s ease-in-out infinite alternate; }
+        .sw-2 .node-satellite { animation: floatX 6.5s ease-in-out infinite alternate; }
+        .sw-3 .node-satellite { animation: floatY 7s ease-in-out infinite alternate; }
+        .sw-4 .node-satellite { animation: floatX 5s ease-in-out infinite alternate; }
+        .sw-5 .node-satellite { animation: floatY 6s ease-in-out infinite alternate; }
+        .sw-6 .node-satellite { animation: floatX 5.8s ease-in-out infinite alternate; }
+        .sw-7 .node-satellite { animation: floatY 6.2s ease-in-out infinite alternate; }
+        .sw-8 .node-satellite { animation: floatX 6.7s ease-in-out infinite alternate; }
+
+        @keyframes floatY { 0% { transform: translateY(0px); } 100% { transform: translateY(-12px); } }
+        @keyframes floatX { 0% { transform: translateX(0px); } 100% { transform: translateX(10px); } }
+
+        .node-satellite:hover {
+            animation-play-state: paused;
+            transform: scale(1.18);
+            border-color: var(--primary-blue);
+            background: white;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .node-satellite i {
+            font-size: 2rem;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .node-satellite span {
+            font-size: 0.72rem;
+            font-weight: 800;
+            color: var(--dark-slate);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        /* Posicionamento Geométrico */
+        .sw-1 { transform: translate(0px, -290px); }     
+        .sw-2 { transform: translate(220px, -220px); }  
+        .sw-3 { transform: translate(310px, 0px); }     
+        .sw-4 { transform: translate(220px, 220px); }   
+        .sw-5 { transform: translate(0px, 290px); }      
+        .sw-6 { transform: translate(-220px, 220px); }  
+        .sw-7 { transform: translate(-310px, 0px); }    
+        .sw-8 { transform: translate(-220px, -220px); } 
+
+        /* MODAIS PREMIUM ROBUSTOS */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.72);
+            backdrop-filter: blur(4px);
+            z-index: 100;
+            overflow-y: scroll; /* Força scroll vertical sempre */
+            padding: 100px 50px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(40px) scale(0.99);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.8s ease-in-out;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1);
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 30px;
+            right: 50px;
+            width: 55px;
+            height: 55px;
+            background: #f1f5f9;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--dark-slate);
+            transition: all 0.5s ease;
+            z-index: 105;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .close-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+            transform: rotate(90deg);
+        }
+
+        .container-premium {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 800;
+            color: var(--secondary-green);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+            display: inline-block;
+            border-bottom: 2px solid var(--secondary-green);
+            padding-bottom: 4px;
+        }
+
+        /* Banner de Aviso de NDA / Confidencialidade */
+        .confidentiality-notice {
+            background: #fffbeb;
+            border: 1px solid #fef3c7;
+            border-left: 6px solid #d97706;
+            padding: 25px;
+            border-radius: 16px;
+            margin: 30px 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .confidentiality-notice i {
+            font-size: 1.8rem;
+            color: #d97706;
+            margin-top: 2px;
+        }
+
+        .confidentiality-notice p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #92400e;
+            font-weight: 500;
+        }
+
+        .main-title {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: var(--dark-slate);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .main-title span {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .corporate-lead {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 35px;
+            max-width: 950px;
+        }
+
+        .tech-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        .premium-card {
+            background: rgba(248, 250, 252, 0.78);
+            border-radius: 24px;
+            padding: 45px;
+            border: 1px solid rgba(226, 232, 240, 0.9);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(2px);
+        }
+
+        .premium-card:hover {
+            background: rgba(255, 255, 255, 0.86);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(11, 79, 191, 0.2);
+            transform: translateY(-8px);
+        }
+
+        .premium-card i {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: block;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .premium-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--dark-slate);
+        }
+
+        .premium-card p {
+            color: var(--text-muted);
+            line-height: 1.65;
+            font-size: 1rem;
+        }
+
+        .data-table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: 16px;
+            border: 1px solid var(--border-light);
+        }
+
+        .premium-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            background: white;
+            font-size: 0.95rem;
+        }
+
+        .premium-table th {
+            background: #f1f5f9;
+            color: var(--dark-slate);
+            padding: 18px 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .premium-table td {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-muted);
+        }
+
+        .stack-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .badge {
+            background: #edf2f7;
+            color: var(--dark-slate);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            border-color: var(--primary-blue);
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .metrics-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin: 60px 0;
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 40px 0;
+        }
+
+        .metric-item {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .metric-item h4 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .metric-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .faq-section {
+            margin-top: 6px;
+            background: #f8fafc;
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 25px;
+            border-bottom: 1px solid var(--border-light);
+            padding-bottom: 20px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-item h5 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-slate);
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .contact-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f8fafc;
+            padding: 25px 35px;
+            border-radius: 18px;
+            border-left: 6px solid var(--primary-blue);
+            transition: all 0.5s ease;
+        }
+
+        .contact-row:hover {
+            background: white;
+            box-shadow: var(--shadow-hover);
+            transform: translateX(5px);
+        }
+
+        .contact-row i {
+            font-size: 2.2rem;
+            color: var(--secondary-green);
+        }
+
+        .app-footer {
+            position: absolute;
+            bottom: 25px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            z-index: 2;
+            pointer-events: none;
+            letter-spacing: 0.5px;
+        }
+
+        @media(max-width: 1024px) {
+            body, html { overflow-y: auto; }
+            .app-container { height: auto; padding: 400px 0; flex-direction: column; }
+            .satellite-wrapper { position: relative !important; transform: none !important; margin: 15px 0; }
+            .node-core { margin-bottom: 40px; transform: none !important; }
+            .network-canvas { display: none; }
+            .main-title { font-size: 2.4rem; }
+        }
+
+        /* Smooth scrolling */
+        html { scroll-behavior: smooth; }
+
+        /* Site header and main sections */
+        .site-header {
+            position: fixed;
+            top: 18px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 110;
+            background: rgba(255,255,255,0.62);
+            backdrop-filter: blur(6px);
+            border-radius: 12px;
+            padding: 8px 14px;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .site-header a { color: var(--dark-slate); text-decoration: none; font-size: 0.95rem; padding: 6px 10px; }
+        .site-main { position: relative; z-index: 2; padding: 60px 20px 120px; width: 100%; }
+        .site-section { margin: 40px 0; }
+        .site-section h2 { font-size: 1.8rem; margin-bottom: 18px; color: var(--dark-slate); }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 18px; }
+
+        /* Floating WhatsApp button */
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 24px;
+            z-index: 9999;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-green));
+            color: white;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            text-decoration:none;
+            transition: transform 0.18s ease;
+        }
+        .whatsapp-float:hover { transform: translateY(-6px); }
+
+        /* Site footer */
+        .site-footer {
+            background: #0f172a;
+            color: #e6eef8;
+            padding: 40px 20px;
+            border-top-left-radius: 24px;
+            border-top-right-radius: 24px;
+            margin-top: 60px;
+        }
+        .site-footer .footer-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 20px; max-width:1200px; margin:0 auto; }
+        .site-footer h4 { color: #fff; margin-bottom: 10px; }
+        .site-footer a { color: #cfe8ff; text-decoration: none; }
+        .site-footer .footer-bottom { text-align:center; margin-top:26px; opacity:0.9; font-size:0.95rem; }
+
+        @media(max-width:600px) {
+            .site-header { left: 12px; transform: none; }
+            .whatsapp-float { right: 12px; bottom: 18px; width:56px; height:56px; }
+            .app-container { padding-top: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="tech-grid"></div>
+
+    <div class="app-container">
+        
+        <svg class="network-canvas" id="networkCanvas">
+            <defs>
+                <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#0b4fbf" />
+                    <stop offset="100%" stop-color="#00b356" />
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- NÓ CENTRAL -->
+        <div class="node-core" id="coreAnchor">
+            <img src="logo.png" alt="NovaBridge" class="logo-mark">
+            
+        </div>
+
+        <!-- 8 ESTRUTURAS SATÉLITES -->
+        <div class="satellite-wrapper sw-1" id="wrap1">
+            <div class="node-satellite" data-modal="modal-startup">
+                <i class="fa-solid fa-layer-group"></i>
+                <span>NovaBridge</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-2" id="wrap2">
+            <div class="node-satellite" data-modal="modal-software">
+                <i class="fa-solid fa-code"></i>
+                <span>Software</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-3" id="wrap3">
+            <div class="node-satellite" data-modal="modal-redes">
+                <i class="fa-solid fa-network-wired"></i>
+                <span>Redes</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-4" id="wrap4">
+            <div class="node-satellite" data-modal="modal-data">
+                <i class="fa-solid fa-brain"></i>
+                <span>Dados</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-5" id="wrap5">
+            <div class="node-satellite" data-modal="modal-cloud">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span>Servidores</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-6" id="wrap6">
+            <div class="node-satellite" data-modal="modal-projectos">
+                <i class="fa-solid fa-folder-kanban"></i>
+                <span>Automação</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-7" id="wrap7">
+            <div class="node-satellite" data-modal="modal-diferencial">
+                <i class="fa-solid fa-gem"></i>
+                <span>Parcerias</span>
+            </div>
+        </div>
+
+        <div class="satellite-wrapper sw-8" id="wrap8">
+            <div class="node-satellite" data-modal="modal-contactos">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <span>Suporte</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="site-footer">
+        <div class="footer-grid">
+            <div>
+                <h4>NovaBridge</h4>
+                <p>A ponte entre visão e realidade digital.</p>
+                <p>Engenharia de Software, Redes, Servidores, Dados, Automação, APIs e Suporte Técnico.</p>
+            </div>
+            <div>
+                <h4>SERVIÇOS</h4>
+                <ul style="list-style:none;padding-left:0;margin:0;line-height:1.8;">
+                    <li><a href="#" data-open-modal="modal-software">Engenharia de Software</a></li>
+                    <li><a href="#" data-open-modal="modal-redes">Redes & Infraestrutura</a></li>
+                    <li><a href="#" data-open-modal="modal-cloud">Servidores & Cloud</a></li>
+                    <li><a href="#" data-open-modal="modal-data">Engenharia de Dados</a></li>
+                    <li><a href="#" data-open-modal="modal-projectos">Automação & APIs</a></li>
+                    <li><a href="#" data-open-modal="modal-contactos">Help Desk & Suporte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>TECNOLOGIAS</h4>
+                <div class="stack-badges">
+                    <span class="badge">HTML</span>
+                    <span class="badge">CSS</span>
+                    <span class="badge">JavaScript</span>
+                    <span class="badge">PHP</span>
+                    <span class="badge">Node.js</span>
+                    <span class="badge">Python</span>
+                    <span class="badge">MySQL</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">Docker</span>
+                    <span class="badge">Linux</span>
+                    <span class="badge">APIs REST</span>
+                </div>
+            </div>
+            <div>
+                <h4>CONTACTOS</h4>
+                <p><a href="#" data-open-modal="modal-contactos">+244 976 021 150</a></p>
+                <p><a href="#" data-open-modal="modal-contactos">it.novabridge@gmail.com</a></p>
+                <p><a href="#" data-open-modal="modal-contactos">Bairro Popular, Luanda, Angola</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">© <span id="currentYear"></span> NovaBridge — Todos os direitos reservados</div>
+    </div>
+
+    <div class="app-footer">© <span id="currentYear"></span> NovaBridge — Todos os direitos reservados</div>
+
+    <!-- ================= MODAIS DE ALTO IMPACTO ================= -->
+
+    <!-- MODAL 1: QUEM SOMOS -->
+    <div class="modal-overlay" id="modal-startup">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Startup Tecnológica</span>
+            <h2 class="main-title">Quem é a <span>NovaBridge</span>?</h2>
+            <p class="corporate-lead">
+                A NovaBridge é uma startup de Tecnologia da Informação especializada em engenharia de software, redes de computadores, administração de servidores, engenharia de dados, automação de processos, APIs, integrações e suporte técnico.
+            </p>
+            <p class="corporate-lead">
+                A nossa estrutura é orientada para empresas que precisam de soluções digitais confiáveis, com base em engenharia, organização operacional e maturidade técnica. A NovaBridge nasce com a visão de operar como uma empresa tecnológica em crescimento, com foco em entregas funcionais, sustentadas e preparadas para escalar.
+            </p>
+
+            <div class="metrics-bar">
+                <div class="metric-item"><h4>INTEG.</h4><p>Engenharia Multidisciplinar</p></div>
+                <div class="metric-item"><h4>SOFT.</h4><p>Soluções Personalizadas</p></div>
+                <div class="metric-item"><h4>SUP.</h4><p>Infraestrutura & Software</p></div>
+            </div>
+
+            <h3 style="font-size: 1.8rem; margin-bottom: 20px;">A ponte entre visão e realidade digital.</h3>
+            <p class="corporate-lead" style="font-size: 1.1rem; color: var(--text-muted);">
+                A NovaBridge funciona como uma startup tecnológica com visão empresarial, capaz de atuar em diferentes camadas do ambiente digital das organizações. O nosso trabalho vai além do desenvolvimento de software. Atuamos também na infraestrutura que suporta as aplicações, nos dados que alimentam os processos, nas redes que conectam os ambientes e no suporte necessário para manter as operações funcionando.
+            </p>
+            <p class="corporate-lead" style="font-size: 1.1rem; color: var(--text-muted);">
+                Nossa missão é transformar necessidades empresariais em soluções tecnológicas estruturadas, seguras, eficientes e preparadas para evoluir.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <h3>Startup com base técnica</h3>
+                    <p>A NovaBridge é uma startup tecnológica liderada por Alexio António Domingos Mango, CEO e Engenheiro de Software, com foco em soluções digitais para empresas. A empresa opera com contabilidade organizada e registo de atividades ativo na AGT sob o NIF 020455112LA052.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>Suporte Tecnológico</h3>
+                    <p>Não entregamos apenas soluções; acompanhamos a operação, a manutenção e a evolução dos ambientes tecnológicos.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: ENGENHARIA DE SOFTWARE -->
+    <div class="modal-overlay" id="modal-software">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Engenharia de Software</span>
+            <h2 class="main-title">Sistemas, Aplicações & <span>APIs</span></h2>
+            <p class="corporate-lead">
+                Desenvolvemos soluções de software personalizadas para empresas, adaptadas aos seus processos, operações e necessidades específicas.
+            </p>
+            <p class="corporate-lead">
+                Criamos websites institucionais, sistemas web, ERPs, plataformas empresariais, aplicações internas, APIs, dashboards, portais e integrações entre sistemas.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <i class="fa-solid fa-window-restore"></i>
+                    <h3>Websites</h3>
+                    <p>Presença digital corporativa, comunicação institucional e experiências digitais alinhadas ao posicionamento da empresa.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-diagram-predecessor"></i>
+                    <h3>Sistemas Web & ERPs</h3>
+                    <p>Aplicações para apoiar processos internos, gestão operacional, recursos, faturação e organização empresarial.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-users-gear"></i>
+                    <h3>APIs & Integrações</h3>
+                    <p>Conectamos sistemas, automatizamos fluxos e facilitamos a troca de informação entre ferramentas e plataformas.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Serviços</h3>
+                <div class="stack-badges">
+                    <span class="badge">Websites</span><span class="badge">Sistemas Web</span><span class="badge">ERPs</span>
+                    <span class="badge">APIs</span><span class="badge">Integrações</span><span class="badge">Dashboards</span>
+                    <span class="badge">Portais Empresariais</span><span class="badge">Aplicações Personalizadas</span>
+                    <span class="badge">Automação de Sistemas</span><span class="badge">Manutenção e Evolução</span>
+                </div>
+            </div>
+
+            <p class="corporate-lead" style="margin-top: 24px; font-weight: 700; color: var(--dark-slate);">
+                “Não entregamos apenas software. Construímos soluções alinhadas com o funcionamento real do negócio.”
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 3: REDES & INFRAESTRUTURA -->
+    <div class="modal-overlay" id="modal-redes">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Redes de Computadores</span>
+            <h2 class="main-title">Redes de Computadores & <span>Infraestrutura</span></h2>
+            <p class="corporate-lead">
+                Projetamos, configuramos e damos suporte a infraestruturas de redes de computadores para ambientes empresariais.
+            </p>
+            <p class="corporate-lead">
+                A NovaBridge pode atuar desde a arquitetura e configuração da rede até à manutenção, diagnóstico, segurança e monitorização da infraestrutura.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <i class="fa-solid fa-cable-car"></i>
+                    <h3>Planeamento e Configuração</h3>
+                    <p>Estruturação da rede, distribuição de acessos, segmentação e organização do ambiente tecnológico para melhor performance e segurança.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-route"></i>
+                    <h3>Segurança e Diagnóstico</h3>
+                    <p>Diagnóstico de infraestrutura, otimização de tráfego, controlo de acessos, estabilidade da rede e redução de falhas operacionais.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Serviços</h3>
+                <div class="stack-badges">
+                    <span class="badge">Planeamento de Redes</span><span class="badge">Configuração de Routers</span><span class="badge">Configuração de Switches</span>
+                    <span class="badge">Redes Empresariais</span><span class="badge">Wi-Fi Empresarial</span><span class="badge">VPN</span>
+                    <span class="badge">Segmentação de Redes</span><span class="badge">Firewall</span><span class="badge">Monitorização</span>
+                    <span class="badge">Diagnóstico de Infraestrutura</span><span class="badge">Segurança de Rede</span><span class="badge">Infraestrutura Física e Lógica</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 4: ENGENHARIA DE DADOS -->
+    <div class="modal-overlay" id="modal-data">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Engenharia de Dados</span>
+            <h2 class="main-title">Transformamos Dados em <span>Informação</span></h2>
+            <p class="corporate-lead">
+                A NovaBridge trabalha com bases de dados, integração, organização, processamento e transformação de dados para apoiar operações empresariais e tomada de decisão.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <h3>Modelação e Organização</h3>
+                    <p>Estruturação de dados e organização de informações para facilitar o acesso, a manutenção e a análise dos processos empresariais.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>Integração e Processamento</h3>
+                    <p>Conectamos fontes de dados, automatizamos fluxos de informação e apoiamos a criação de relatórios e dashboards operacionais.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Serviços</h3>
+                <div class="stack-badges">
+                    <span class="badge">Bases de Dados</span><span class="badge">Modelação de Dados</span><span class="badge">Migração de Dados</span>
+                    <span class="badge">Integração de Dados</span><span class="badge">ETL</span><span class="badge">Pipelines</span>
+                    <span class="badge">Processamento de Dados</span><span class="badge">Dashboards</span><span class="badge">Relatórios</span>
+                    <span class="badge">APIs de Dados</span><span class="badge">Automação de Processos de Dados</span>
+                </div>
+            </div>
+
+            <p class="corporate-lead" style="margin-top: 24px; font-weight: 700; color: var(--dark-slate);">
+                “Dados estruturados permitem processos mais eficientes e decisões mais inteligentes.”
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 5: SERVIDORES & CLOUD -->
+    <div class="modal-overlay" id="modal-cloud">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Servidores e Infraestrutura</span>
+            <h2 class="main-title">Servidores, Infraestrutura & <span>Cloud</span></h2>
+            <p class="corporate-lead">
+                Administramos ambientes de servidores e infraestrutura tecnológica, ajudando empresas a manter as suas aplicações, serviços e dados disponíveis, organizados e seguros.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <h3>Administração de Servidores</h3>
+                    <p>Monitorização, manutenção, organização e gestão de ambientes locais e cloud para garantir estabilidade e continuidade das operações.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-infinity"></i>
+                    <h3>Segurança e Disponibilidade</h3>
+                    <p>Implementação de políticas de acesso, backups, monitorização e manutenção proativa para reduzir riscos de indisponibilidade.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Serviços</h3>
+                <div class="stack-badges">
+                    <span class="badge">Administração de Servidores</span><span class="badge">Linux</span><span class="badge">Windows Server</span>
+                    <span class="badge">Apache</span><span class="badge">Nginx</span><span class="badge">Bases de Dados</span>
+                    <span class="badge">Backups</span><span class="badge">Monitorização</span><span class="badge">Deploy de Aplicações</span>
+                    <span class="badge">Virtualização</span><span class="badge">Cloud</span><span class="badge">Gestão de Acessos</span>
+                    <span class="badge">Segurança</span><span class="badge">Manutenção de Infraestrutura</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 6: PROJECTOS & SOLUÇÕES -->
+    <div class="modal-overlay" id="modal-projectos">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Projetos & Soluções</span>
+            <h2 class="main-title">Projetos & <span>Soluções Tecnológicas</span></h2>
+            <p class="corporate-lead">
+                A NovaBridge desenvolve e implementa soluções tecnológicas adaptadas às necessidades de cada organização.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <h3>Sistemas Empresariais</h3>
+                    <p>Ferramentas para gerir operações internas, processos e informação de forma organizada e eficiente.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-globe"></i>
+                    <h3>Websites Corporativos</h3>
+                    <p>Presença digital profissional e estruturação de canais digitais para empresas e organizações.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-database"></i>
+                    <h3>Bases de Dados & Integrações</h3>
+                    <p>Organização de informação, integração entre sistemas e suporte à gestão de dados críticos.</p>
+                </div>
+                <div class="premium-card">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>Redes & Infraestrutura</h3>
+                    <p>Arquitetura de redes, servidores, acesso e estrutura tecnológica para ambientes empresariais.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Áreas de projetos</h3>
+                <div class="stack-badges">
+                    <span class="badge">Sistemas Empresariais</span><span class="badge">Websites Corporativos</span><span class="badge">ERPs</span>
+                    <span class="badge">APIs</span><span class="badge">Dashboards</span><span class="badge">Automação</span>
+                    <span class="badge">Redes Empresariais</span><span class="badge">Infraestrutura de Servidores</span><span class="badge">Bases de Dados</span>
+                    <span class="badge">Integração de Sistemas</span><span class="badge">Help Desk</span><span class="badge">Soluções Personalizadas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 7: PARCERIAS -->
+    <div class="modal-overlay" id="modal-diferencial">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Parcerias Tecnológicas</span>
+            <h2 class="main-title">A sua empresa cuida do negócio. A <span>NovaBridge</span> cuida da tecnologia.</h2>
+            <p class="corporate-lead">
+                A NovaBridge pode atuar como o departamento tecnológico externo de empresas que já possuem uma carteira de clientes, permitindo que essas empresas ampliem os seus serviços sem precisar construir internamente uma equipa completa de TI.
+            </p>
+            <p class="corporate-lead">
+                Neste modelo, a empresa parceira mantém o relacionamento comercial, a venda e a gestão dos seus clientes. A NovaBridge assume a componente técnica.
+            </p>
+
+            <div class="tech-grid-layout">
+                <div class="premium-card">
+                    <h3>Engenharia Integrada</h3>
+                    <p>Software, infraestrutura, redes, dados, automação e suporte trabalhando em conjunto para sustentar as operações do cliente.</p>
+                </div>
+                <div class="premium-card">
+                    <h3>Extensão Técnica</h3>
+                    <p>A empresa parceira mantém a relação comercial. A NovaBridge fornece a capacidade técnica necessária para executar e sustentar as soluções.</p>
+                </div>
+            </div>
+
+            <div class="faq-section">
+                <h3>Modelo de parceria</h3>
+                <div class="faq-item">
+                    <p><strong>Empresa Parceira</strong><br>Comercial · Vendas · Relacionamento com Cliente · Gestão da Carteira</p>
+                    <p style="text-align:center; margin: 12px 0;">↓</p>
+                    <p><strong>NovaBridge</strong><br>Engenharia de Software · Redes · Servidores · Dados · Automação · APIs · Suporte Técnico</p>
+                    <p style="text-align:center; margin: 12px 0;">↓</p>
+                    <p><strong>Cliente Final</strong><br>Soluções · Implementação · Suporte · Manutenção</p>
+                </div>
+            </div>
+
+            <p class="corporate-lead" style="margin-top: 24px; font-weight: 700; color: var(--dark-slate);">
+                “Uma equipa tecnológica completa por trás da sua empresa.”
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL 8: CONTACTOS -->
+    <div class="modal-overlay" id="modal-contactos">
+        <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
+        <div class="container-premium">
+            <span class="section-tag">Fale connosco</span>
+            <h2 class="main-title">Fale com a <span>NovaBridge</span></h2>
+            <p class="corporate-lead">
+                Tem um projeto, uma necessidade de infraestrutura ou procura uma equipa tecnológica para apoiar os seus clientes?
+            </p>
+            <p class="corporate-lead">
+                Fale connosco. A NovaBridge pode atuar diretamente com empresas ou como parceiro tecnológico externo.
+            </p>
+
+            <div class="contact-flex">
+                <div class="contact-row">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div>
+                        <h5>Telefone</h5>
+                        <p>+244 948 996 080</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <i class="fa-solid fa-envelope-open"></i>
+                    <div>
+                        <h5>E-mail</h5>
+                        <p>it.novabridge@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-row">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <div>
+                        <h5>Localização</h5>
+                        <p>Bairro Popular, Luanda, Angola</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="whatsapp-float" href="https://wa.me/244976021150?text=Ol%C3%A1%20NovaBridge%2C%20quero%20mais%20informa%C3%A7%C3%B5es%20sobre%20os%20servi%C3%A7os%20e%20solu%C3%A7%C3%B5es%20tecnol%C3%B3gicas." target="_blank" rel="noopener noreferrer" aria-label="Contactar via WhatsApp">
+        <i class="fa-brands fa-whatsapp" style="font-size:1.6rem;"></i>
+    </a>
+
+    <!-- ================= LÓGICA JAVASCRIPT AVANÇADA DE TOPOLOGIA ================= -->
+    <script>
+        const satellites = document.querySelectorAll('.node-satellite');
+        const overlays = document.querySelectorAll('.modal-overlay');
+        const closeButtons = document.querySelectorAll('.close-btn');
+
+        satellites.forEach(sat => {
+            sat.addEventListener('click', () => {
+                const modalId = sat.getAttribute('data-modal');
+                const target = document.getElementById(modalId);
+                if (target) target.classList.add('active');
+            });
+        });
+
+        closeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                overlays.forEach(o => o.classList.remove('active'));
+            });
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                overlays.forEach(o => o.classList.remove('active'));
+            }
+        });
+
+        function renderNetworkTopology() {
+            const canvas = document.getElementById('networkCanvas');
+            const anchor = document.getElementById('coreAnchor');
+            const wrappers = document.querySelectorAll('.satellite-wrapper');
+
+            const oldLines = canvas.querySelectorAll('line');
+            oldLines.forEach(l => l.remove());
+
+            const anchorRect = anchor.getBoundingClientRect();
+            const ax = anchorRect.left + (anchorRect.width / 2);
+            const ay = anchorRect.top + (anchorRect.height / 2);
+
+            const coordinates = [];
+
+            // 1ª Camada de Linhas
+            wrappers.forEach(wrap => {
+                const wrapRect = wrap.getBoundingClientRect();
+                const wx = wrapRect.left + (wrapRect.width / 2);
+                const wy = wrapRect.top + (wrapRect.height / 2);
+                coordinates.push({x: wx, y: wy});
+
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                line.setAttribute('x1', ax);
+                line.setAttribute('y1', ay);
+                line.setAttribute('x2', wx);
+                line.setAttribute('y2', wy);
+                line.setAttribute('class', 'data-stream');
+                canvas.appendChild(line);
+            });
+
+            // 2ª Camada de Linhas (Efeito Mesh Network)
+            for(let i = 0; i < coordinates.length; i++) {
+                const nextIndex = (i + 1) % coordinates.length;
+                const meshLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                meshLine.setAttribute('x1', coordinates[i].x);
+                meshLine.setAttribute('y1', coordinates[i].y);
+                meshLine.setAttribute('x2', coordinates[nextIndex].x);
+                meshLine.setAttribute('y2', coordinates[nextIndex].y);
+                meshLine.setAttribute('class', 'inter-mesh');
+                canvas.appendChild(meshLine);
+            }
+        }
+
+        window.addEventListener('load', () => requestAnimationFrame(renderNetworkTopology));
+        window.addEventListener('resize', () => requestAnimationFrame(renderNetworkTopology));
+        
+                setInterval(() => {
+                        requestAnimationFrame(renderNetworkTopology);
+                }, 30);
+        </script>
+
+        <script>
+            (function(){
+                // Dynamic footer year
+                var el = document.getElementById('currentYear');
+                if(el) el.textContent = new Date().getFullYear();
+
+                // Links in footer should open modals and not navigate away
+                document.addEventListener('click', function(e){
+                    var a = e.target.closest && e.target.closest('a[data-open-modal]');
+                    if(a){
+                        e.preventDefault();
+                        var modalId = a.getAttribute('data-open-modal');
+                        var m = document.getElementById(modalId);
+                        if(m) m.classList.add('active');
+                    }
+                });
+
+                // Ensure WhatsApp button accessible role
+                var wa = document.querySelector('.whatsapp-float');
+                if(wa){ wa.setAttribute('role','button'); wa.setAttribute('aria-label','Contactar via WhatsApp'); }
+            })();
+        </script>
+</body>
+</html>
